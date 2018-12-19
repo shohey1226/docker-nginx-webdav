@@ -1,9 +1,9 @@
-FROM ubuntu:trusty
+FROM ubuntu:18.04
 
 RUN apt-get update && apt-get install -y nginx nginx-extras apache2-utils
 
-VOLUME /media
-EXPOSE 80
+VOLUME /etc/letsencrypt
+EXPOSE 443
 COPY webdav.conf /etc/nginx/conf.d/default.conf
 RUN rm /etc/nginx/sites-enabled/*
 
